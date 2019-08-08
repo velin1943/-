@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        ~function () {
+            function myslice(m, n) {
+                //获取原数组长度
+                var len = this.length;
+                //n不传参的情况
+                n === undefined ? n = len : null;
+                //可以转数字的转为数字，NaN视为0；
+                isNaN(m) ? m = 0 : m = Math.floor(Number(m));
+                isNaN(n) ? n = 0 : n = Number(n);
+                //根据n的值，进行统一转换。
+                len < n ? n = len : null;
+                0 < n && n < len ? n = Math.floor(n) : null;
+                -1 < n && n < 0 ? n = 0 : null;
+                n <= -1 ? n = Math.ceil(len + n) : null;
+                // console.log(m, n);//打印一下m,n的最终值。
+                //执行
+                if (n <= 0 || m > n) {
+                    return []
+                } else {
+                    if (Array.isArray(this)) {
+                        that = [];
+                        var time = n - m;
+                        //循环次数
+                        for (let i = 0; i < time; i++ , m++) {
+                            that[i] = this[m];
+                        }
+                        return that;
+                    } else {
+                        that = '';
+                        var time = n - m;
+                        for (let i = 0; i < time; i++ , m++) {
+                            that += this[m];
+                        }
+                        return that;
+                    }
+                }
+            }
+            String.prototype.myslice = myslice;
+            Array.prototype.myslice = myslice;
+        }()
+    </script>
+</body>
+
+</html>
