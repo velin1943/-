@@ -29,21 +29,18 @@
                 if (n <= 0 || m > n) {
                     return []
                 } else {
+                    thata = [];
+                    thatb = '';
+                    var time = n - m;
+                    //循环次数
+                    for (let i = 0; i < time; i++ , m++) {
+                        thata[i] = this[m];
+                        thatb += this[m];
+                    }
                     if (Array.isArray(this)) {
-                        that = [];
-                        var time = n - m;
-                        //循环次数
-                        for (let i = 0; i < time; i++ , m++) {
-                            that[i] = this[m];
-                        }
-                        return that;
+                        return thata;
                     } else {
-                        that = '';
-                        var time = n - m;
-                        for (let i = 0; i < time; i++ , m++) {
-                            that += this[m];
-                        }
-                        return that;
+                        return thatb;
                     }
                 }
             }
