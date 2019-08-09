@@ -37,11 +37,7 @@
                         thata[i] = this[m];
                         thatb += this[m];
                     }
-                    if (Array.isArray(this)) {
-                        return thata;
-                    } else {
-                        return thatb;
-                    }
+                    return Array.isArray(this) ? thata : thatb
                 }
             }
             String.prototype.myslice = myslice;
