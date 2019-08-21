@@ -11,7 +11,7 @@
 <body>
     <script>
         ~function () {
-            function myslice(m, n) {
+            function mySlice(m, n) {
                 //获取原数组长度
                 var len = this.length;
                 //n不传参的情况
@@ -40,8 +40,8 @@
                     return Array.isArray(this) ? thata : thatb
                 }
             }
-            String.prototype.myslice = myslice;
-            Array.prototype.myslice = myslice;
+            String.prototype.myslice = mySlice;
+            Array.prototype.myslice = mySlice;
         }()
     </script>
 </body>
