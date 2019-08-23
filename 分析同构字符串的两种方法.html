@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isomorphValidator(a, b) {
+            let aLen = a.length, bLen = b.length, a2 = a, b2 = b;
+            if (aLen !== bLen) {
+                return false;
+            } else {
+                for (let i = 0; i < aLen; i++) {
+                    let curA = a[i], curB = b[i];
+                    let rega = new RegExp(curA, 'g');
+                    let regb = new RegExp(curB, 'g');
+                    a2 = a2.replace(rega, curB);
+                    b2 = b2.replace(regb, curA);
+                }
+                if (a === b2&&b===a2) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        function isomorphValidator2(a, b) {
+            if (a.length !== b.length) {
+                return false
+            } else {
+                function fn(arr) {
+                    let codeBox = '', num = '';
+                    for (let i = 0; i < arr.length; i++) {
+                        let n = codeBox.indexOf(arr[i]);
+                        if (n === -1) {
+                            codeBox += arr[i];
+                            num += `${i}`;
+                        } else {
+                            num += `${n}`;
+                        }
+                    }
+                    return num;
+                }
+                
+                if (fn(a) === fn(b)) {
+                    return true
+                } else {
+                    return false
+                }
+            }
+        }
+        console.log(isomorphValidator('abcda', 'qwera'));
+        console.log(isomorphValidator2('abcda', 'qwera'));
+
+    </script>
+</body>
+
+</html>
